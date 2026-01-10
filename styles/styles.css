@@ -25,6 +25,7 @@ body {
 .header {
   background-color: #ffffff;
   padding: 32px 0;
+  border-bottom: 1px #ececec solid;
 }
 .header-container {
   display: flex;
@@ -54,8 +55,11 @@ body {
 .header-contacts :last-child {
   color: #757575;
 }
-.header-nav :first-child:hover,
+/* .header-nav :first-child:hover,
 .header-contacts :first-child:hover {
+  color: #2196f3;
+} */
+.header-link:hover {
   color: #2196f3;
 }
 
