@@ -233,7 +233,7 @@ body {
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
     0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }
-.project-filters {
+.button-container {
   display: flex;
   gap: 8px;
   justify-content: center;
@@ -251,7 +251,7 @@ body {
   color: var(--gray);
 }
 .prjct-info {
-  margin: 20px 24px;
+  padding: 20px 24px;
   line-height: 1.5;
 }
 .project-img {
