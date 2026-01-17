@@ -120,11 +120,12 @@ body {
 }
 .nav-filter {
   padding: 10px;
+  position: relative;
 }
 .nav-contacts {
   background-color: var(--light-gr-color);
   position: absolute;
-  bottom: 0;
+  top: 0;
   right: 100%;
   border-radius: 4px;
   padding: 10px;
@@ -146,8 +147,8 @@ body {
 /* MAIN */
 
 .hero {
-  background: var(--gray-bg-color) url(../image/hero-img.jpg) no-repeat scroll
-    center / 100%;
+  background: var(--gray-bg-color) url(../image/hero-img.jpg) no-repeat center /
+    100%;
   position: relative;
 }
 .hero::before {
@@ -205,6 +206,8 @@ body {
   flex: 1 1 23%;
   line-height: 1.5;
   letter-spacing: 0.06em;
+  padding-top: 150px;
+  position: relative;
 }
 .title-main-list {
   color: var(--dark-gray-color);
@@ -213,30 +216,25 @@ body {
   padding-bottom: 10px;
 }
 .info-li {
-  padding-top: 150px;
-  position: relative;
 }
-.info-li::before {
+.info-list::before {
   content: "";
   position: absolute;
   height: 120px;
-  width: 270px;
   inset: 0;
-  background: #f5f4fa;
   border-radius: 4px;
-  z-index: -1;
 }
-.info-list:nth-child(1) {
-  background: url(../image/antenna\ 1.svg) no-repeat scroll 100px 25px/70px;
+.info-list:nth-child(1)::before {
+  background: #f5f4fa url(../image/antenna.svg) no-repeat scroll 50%/70px;
 }
-.info-list:nth-child(2) {
-  background: url(../image/Vector.png) no-repeat scroll 100px 25px/70px;
+.info-list:nth-child(2)::before {
+  background: #f5f4fa url(../image/Vector.png) no-repeat scroll 50%/70px;
 }
-.info-list:nth-child(3) {
-  background: url(../image/computer.png) no-repeat scroll 100px 25px/70px;
+.info-list:nth-child(3)::before {
+  background: #f5f4fa url(../image/computer.png) no-repeat scroll 50%/70px;
 }
-.info-list:nth-child(4) {
-  background: url(../image/astronaut\ 1.svg) no-repeat scroll 100px 25px/70px;
+.info-list:nth-child(4)::before {
+  background: #f5f4fa url(../image/astronaut.svg) no-repeat scroll 50%/70px;
 }
 /* What are we doing */
 
