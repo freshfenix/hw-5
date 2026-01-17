@@ -47,7 +47,7 @@ body {
   color: var(--dark-gray-color);
 }
 .container {
-  width: 1200px;
+  max-width: 1200px;
   padding: 0 15px;
   margin: 0 auto;
 }
@@ -86,6 +86,10 @@ body {
   color: var(--dark-gray-color);
   text-decoration: none;
   font-weight: 500;
+  display: block;
+}
+.header-li {
+  position: relative;
 }
 .highlight {
   color: var(--gray);
@@ -101,11 +105,56 @@ body {
 .header-link:hover {
   color: var(--brand-color);
 }
+.nav-filters {
+  position: absolute;
+  z-index: 1;
+  top: 100%;
+  left: 0;
+  background: var(--light-gr-color);
+  border-radius: 8px;
+  display: none;
+  padding-top: 5px;
+  box-shadow:
+    0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+.nav-filter {
+  padding: 10px;
+}
+.nav-contacts {
+  background-color: var(--light-gr-color);
+  position: absolute;
+  bottom: 0;
+  right: 100%;
+  border-radius: 4px;
+  padding: 10px;
+  display: none;
+  box-shadow:
+    0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+.nav-contacts li {
+  padding: 5px;
+}
+.header-li:hover .nav-filters {
+  display: block;
+}
+.nav-filter:last-child:hover .nav-contacts {
+  display: block;
+}
 
 /* MAIN */
 
 .hero {
-  background-color: var(--gray-bg-color);
+  background: var(--gray-bg-color) url(../image/hero-img.jpg) no-repeat scroll
+    center / 100%;
+  position: relative;
+}
+.hero::before {
+  position: absolute;
+  content: "";
+  inset: 0;
+  background: rgba(47, 48, 58, 0.4);
 }
 .hero-container {
   min-height: 600px;
@@ -114,6 +163,8 @@ body {
   align-items: center;
   justify-content: center;
   max-width: 695px;
+  position: relative;
+  z-index: 1;
 }
 .hero-title {
   font-size: 44px;
@@ -152,12 +203,40 @@ body {
 .info-list {
   color: var(--gray);
   flex: 1 1 23%;
+  line-height: 1.5;
+  letter-spacing: 0.06em;
 }
 .title-main-list {
   color: var(--dark-gray-color);
   font-weight: 700;
   text-transform: uppercase;
   padding-bottom: 10px;
+}
+.info-li {
+  padding-top: 150px;
+  position: relative;
+}
+.info-li::before {
+  content: "";
+  position: absolute;
+  height: 120px;
+  width: 270px;
+  inset: 0;
+  background: #f5f4fa;
+  border-radius: 4px;
+  z-index: -1;
+}
+.info-list:nth-child(1) {
+  background: url(../image/antenna\ 1.svg) no-repeat scroll 100px 25px/70px;
+}
+.info-list:nth-child(2) {
+  background: url(../image/Vector.png) no-repeat scroll 100px 25px/70px;
+}
+.info-list:nth-child(3) {
+  background: url(../image/computer.png) no-repeat scroll 100px 25px/70px;
+}
+.info-list:nth-child(4) {
+  background: url(../image/astronaut\ 1.svg) no-repeat scroll 100px 25px/70px;
 }
 /* What are we doing */
 
@@ -171,16 +250,30 @@ body {
 }
 .doing-card {
   flex: 1 1 30%;
+  position: relative;
 }
 .doing-cards {
   display: flex;
   gap: 30px;
   margin-top: 50px;
 }
-.doing img {
+.doing-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+.doing-info-title {
+  color: var(--white-color);
+  text-transform: uppercase;
+  text-align: center;
+  padding: 27px;
+}
+.doing-info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background: rgba(47, 48, 58, 0.8);
+  width: 100%;
 }
 
 /* OUR TEAM */
@@ -203,7 +296,8 @@ body {
   background-color: var(--white-color);
   text-align: center;
   color: var(--gray);
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+  box-shadow:
+    0 4px 6px -1px rgba(0, 0, 0, 0.1),
     0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }
 .team-img {
@@ -232,13 +326,15 @@ body {
 .filter-btn.active {
   background-color: var(--brand-color);
   color: var(--white-color);
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+  box-shadow:
+    0 4px 6px -1px rgba(0, 0, 0, 0.1),
     0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }
 .filter-btn:hover {
   color: var(--white-color);
   background-color: var(--brand-color);
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+  box-shadow:
+    0 4px 6px -1px rgba(0, 0, 0, 0.1),
     0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }
 .button-container {
@@ -278,10 +374,7 @@ body {
   color: var(--white-color);
   position: absolute;
   background-color: rgb(33, 150, 243, 0.8);
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  inset: 0;
   display: flex;
   align-items: center;
   justify-content: center;
