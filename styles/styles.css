@@ -40,6 +40,7 @@
   --brand-color: #2196f3;
   --light-gr-color: #f5f4fa;
   --ee-color: #eeeeee;
+  --svg-logo-color: #afb1b8;
 }
 html,
 body {
@@ -189,7 +190,11 @@ body {
   font-size: 16px;
 }
 .hidden {
-  visibility: hidden;
+  position: absolute;
+  z-index: -1;
+  width: 0;
+  height: 0;
+  opacity: 0;
 }
 .main-information {
   padding-top: 94px;
@@ -214,8 +219,6 @@ body {
   font-weight: 700;
   text-transform: uppercase;
   padding-bottom: 10px;
-}
-.info-li {
 }
 .info-list::before {
   content: "";
@@ -309,7 +312,6 @@ body {
   padding-bottom: 10px;
   color: var(--dark-gray-color);
 }
-
 /* PORTFOLIO */
 .portfolio {
   padding: 94px 0;
@@ -392,25 +394,97 @@ body {
   opacity: 1;
 }
 
+/* Regular customers */
+
+.customers {
+  margin: 94px 0;
+}
+.customers-list {
+  margin-top: 50px;
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+}
+.customers-li {
+  padding: 16px 32px;
+  border: 1px solid var(--svg-logo-color);
+  border-radius: 5px;
+}
+.customers-li:hover .customers-svg {
+  color: var(--brand-color);
+}
+.customers-li:hover {
+  border: 1px solid var(--brand-color);
+}
+.customers-svg {
+  width: 106px;
+  height: 60px;
+  color: var(--svg-logo-color);
+}
+
+/* SOCIAL MEDIA */
+.social-li {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: #ffffff1a;
+}
+.social-link {
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: 12px;
+}
+.social-join {
+  margin-left: 130px;
+}
+.social-list {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+.avatar-li:hover .social-svg {
+  color: var(--white-color);
+}
+.avatar-li:hover {
+  background-color: var(--brand-color);
+}
+.social-svg {
+  color: var(--svg-logo-color);
+  width: 20px;
+  height: 20px;
+}
+.avatar-info ul {
+  margin-top: 16px;
+}
+.social-li:hover {
+  background-color: var(--brand-color);
+}
+.footer-svg {
+  color: var(--white-color);
+}
+
 /* FOOTER */
 
 .footer {
   padding: 60px 0;
   background-color: var(--gray-bg-color);
   margin-top: auto;
+  font-size: 14px;
+}
+.footer-flex {
+  display: flex;
 }
 .footer-logo {
   width: 145px;
   height: 31px;
   display: block;
 }
-.footer-contacts {
-  margin-top: 20px;
-}
 .footer-list {
   display: flex;
   flex-direction: column;
   gap: 9px;
+  margin-top: 20px;
 }
 .footer-link {
   color: var(--white-color);
@@ -420,4 +494,13 @@ body {
 .footer-list li:nth-child(n + 2) {
   color: var(--footer-link-color);
   opacity: 0.6;
+}
+.social-join {
+  margin-top: 12px;
+  font-size: 14px;
+  color: var(--white-color);
+}
+.footer-title {
+  font-weight: 700;
+  text-transform: uppercase;
 }
