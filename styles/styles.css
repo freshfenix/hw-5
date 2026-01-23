@@ -41,6 +41,7 @@
   --light-gr-color: #f5f4fa;
   --ee-color: #eeeeee;
   --svg-logo-color: #afb1b8;
+  --transform-color: #d56cff;
 }
 html,
 body {
@@ -113,11 +114,14 @@ body {
   left: 0;
   background: var(--light-gr-color);
   border-radius: 8px;
-  display: none;
+  visibility: hidden;
+  opacity: 0;
   padding-top: 5px;
   box-shadow:
     0 4px 6px -1px rgba(0, 0, 0, 0.1),
     0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  transition: all 0.8s ease-in-out;
+  transform: translateY(100%);
 }
 .nav-filter {
   padding: 10px;
@@ -127,22 +131,29 @@ body {
   background-color: var(--light-gr-color);
   position: absolute;
   top: 0;
-  right: 100%;
+  left: 100%;
   border-radius: 4px;
   padding: 10px;
-  display: none;
   box-shadow:
     0 4px 6px -1px rgba(0, 0, 0, 0.1),
     0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  transition: all 1s ease-in-out;
+  transform: translateX(-100%);
+  opacity: 0;
+  visibility: hidden;
 }
 .nav-contacts li {
   padding: 5px;
 }
 .header-li:hover .nav-filters {
-  display: block;
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0);
 }
 .nav-filter:last-child:hover .nav-contacts {
-  display: block;
+  visibility: visible;
+  opacity: 1;
+  transform: translateX(0) perspective(0);
 }
 
 /* MAIN */
@@ -188,6 +199,11 @@ body {
   border-radius: 4px;
   padding: 15px 52px;
   font-size: 16px;
+  transition: 1s;
+}
+.button:hover {
+  transform: scale(1.1);
+  background-color: var(--transform-color);
 }
 .hidden {
   position: absolute;
@@ -312,6 +328,78 @@ body {
   padding-bottom: 10px;
   color: var(--dark-gray-color);
 }
+
+/* Regular customers */
+
+.customers {
+  padding: 94px 0;
+}
+.customers-list {
+  margin-top: 50px;
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+}
+.customers-li {
+  padding: 16px 0;
+  border: 1px solid var(--svg-logo-color);
+  border-radius: 5px;
+  flex: 1 1 16%;
+  text-align: center;
+}
+.customers-li:hover {
+  --svg-logo-color: var(--brand-color);
+}
+.customers-svg {
+  width: 106px;
+  height: 60px;
+  color: var(--svg-logo-color);
+}
+
+/* SOCIAL MEDIA */
+
+.social-link {
+  display: block;
+  padding: 12px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: #ffffff1a;
+  transition: all 0.5s linear;
+}
+.social-join {
+  margin-left: 130px;
+}
+.social-list {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+.avatar-li:hover .social-svg {
+  color: var(--white-color);
+}
+.social-link:hover {
+  background-color: var(--brand-color);
+  transform: scale(1.2);
+}
+.social-svg {
+  color: var(--svg-logo-color);
+  width: 20px;
+  height: 20px;
+  transition: all 0.5s linear;
+}
+.social-link:hover .social-svg {
+  transform: rotate(1turn);
+}
+.avatar-info ul {
+  margin-top: 16px;
+}
+/* .social-li:hover {
+  background-color: var(--brand-color); */
+.footer-svg {
+  --svg-logo-color: var(--white-color);
+}
+
 /* PORTFOLIO */
 .portfolio {
   padding: 94px 0;
@@ -382,7 +470,8 @@ body {
   font-size: 18px;
   line-height: 1.5;
   letter-spacing: 0.03em;
-  opacity: 0;
+  transform: translateX(-100%);
+  transition: all 0.5s ease-in;
 }
 .allusion-box {
   position: relative;
@@ -391,77 +480,7 @@ body {
   overflow: hidden;
 }
 .project:hover .allusion {
-  opacity: 1;
-}
-
-/* Regular customers */
-
-.customers {
-  margin: 94px 0;
-}
-.customers-list {
-  margin-top: 50px;
-  display: flex;
-  gap: 30px;
-  justify-content: center;
-}
-.customers-li {
-  padding: 16px 32px;
-  border: 1px solid var(--svg-logo-color);
-  border-radius: 5px;
-}
-.customers-li:hover .customers-svg {
-  color: var(--brand-color);
-}
-.customers-li:hover {
-  border: 1px solid var(--brand-color);
-}
-.customers-svg {
-  width: 106px;
-  height: 60px;
-  color: var(--svg-logo-color);
-}
-
-/* SOCIAL MEDIA */
-.social-li {
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  background-color: #ffffff1a;
-}
-.social-link {
-  display: block;
-  width: 100%;
-  height: 100%;
-  padding: 12px;
-}
-.social-join {
-  margin-left: 130px;
-}
-.social-list {
-  display: flex;
-  gap: 10px;
-  margin-top: 20px;
-}
-.avatar-li:hover .social-svg {
-  color: var(--white-color);
-}
-.avatar-li:hover {
-  background-color: var(--brand-color);
-}
-.social-svg {
-  color: var(--svg-logo-color);
-  width: 20px;
-  height: 20px;
-}
-.avatar-info ul {
-  margin-top: 16px;
-}
-.social-li:hover {
-  background-color: var(--brand-color);
-}
-.footer-svg {
-  color: var(--white-color);
+  transform: translateX(0);
 }
 
 /* FOOTER */
