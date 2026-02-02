@@ -74,10 +74,14 @@ body {
   display: flex;
   align-items: center;
 }
-.header-logo {
+.logo {
   width: 145px;
   height: 31px;
   display: block;
+}
+.logo img {
+  width: 100%;
+  height: 100%;
 }
 .header-nav {
   display: flex;
@@ -156,11 +160,41 @@ body {
   transform: translateX(0) perspective(0);
 }
 
+.header-burger {
+  display: none;
+  width: 24px;
+  height: 16px;
+  position: relative;
+  cursor: pointer;
+}
+
+.header-burger::before,
+.header-burger::after,
+.header-burger span {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: black;
+}
+
+.header-burger::after {
+  top: auto;
+  bottom: 0;
+}
+
+.header-burger span {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
 /* MAIN */
 
 .hero {
   background: var(--gray-bg-color) url(../image/hero-img.jpg) no-repeat center /
-    100%;
+    cover;
   position: relative;
 }
 .hero::before {
@@ -170,7 +204,7 @@ body {
   background: rgba(47, 48, 58, 0.4);
 }
 .hero-container {
-  min-height: 600px;
+  height: 600px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -271,12 +305,17 @@ body {
 }
 .doing-cards {
   display: flex;
+  flex-wrap: wrap;
   gap: 30px;
   margin-top: 50px;
 }
 .doing-img {
   width: 100%;
   height: 100%;
+}
+.doing-img img {
+  width: 100%;
+  height: 294px;
   object-fit: cover;
 }
 .doing-info-title {
@@ -303,13 +342,14 @@ body {
 }
 .team-cards {
   display: flex;
+  flex-wrap: wrap;
   gap: 30px;
 }
 .avatar-info {
   padding: 30px;
 }
 .team-card {
-  flex: 1 1 24%;
+  flex: 1 1 23%;
   background-color: var(--white-color);
   text-align: center;
   color: var(--gray);
@@ -371,6 +411,7 @@ body {
   margin-left: 130px;
 }
 .social-list {
+  justify-content: center;
   display: flex;
   gap: 10px;
   margin-top: 20px;
@@ -394,8 +435,6 @@ body {
 .avatar-info ul {
   margin-top: 16px;
 }
-/* .social-li:hover {
-  background-color: var(--brand-color); */
 .footer-svg {
   --svg-logo-color: var(--white-color);
 }
@@ -427,6 +466,7 @@ body {
 }
 .button-container {
   display: flex;
+  flex-wrap: wrap;
   gap: 8px;
   justify-content: center;
 }
@@ -522,4 +562,167 @@ body {
 .footer-title {
   font-weight: 700;
   text-transform: uppercase;
+}
+
+@media (max-width: 1280px) {
+  .team-card {
+    flex: 1 1 47%;
+  }
+}
+@media (max-width: 1024px) {
+  .header {
+    padding: 16px 0;
+  }
+
+  .logo {
+    width: 134px;
+    height: 28px;
+  }
+
+  .header-nav {
+    column-gap: 15px;
+    margin-left: 40px;
+  }
+
+  .header-contacts {
+    column-gap: 15px;
+  }
+
+  /* HERO */
+
+  .hero-title {
+    font-size: 34px;
+  }
+  .hero-container {
+    height: calc(100vh - 61px);
+    max-width: 600px;
+  }
+
+  /*  */
+
+  .info-list {
+    flex: 1 1 29%;
+  }
+  .doing-cards {
+    gap: 20px;
+  }
+
+  .doing-card {
+    flex: 1 1 47%;
+  }
+
+  .doing-img img {
+    width: 100%;
+    height: 240px;
+  }
+
+  .doing-info-title {
+    padding: 15px;
+  }
+  .title {
+    font-size: 27px;
+  }
+  .doing {
+    padding: 50px 0;
+  }
+
+  /* TEAM */
+
+  .team {
+    padding: 60px 0;
+  }
+  .team .title {
+    margin-bottom: 40px;
+  }
+  .avatar-info {
+    padding: 30px 30px 24px;
+  }
+
+  .team-img {
+    height: 330px;
+  }
+
+  /* CUSTOMERS */
+
+  .customers {
+    padding: 58px 0;
+  }
+
+  .customers-list {
+    flex-wrap: wrap;
+    margin-top: 35px;
+    gap: 15px;
+  }
+
+  .customers-li {
+    flex: 1 1 29%;
+  }
+}
+@media (max-width: 768px) {
+  .wrapper {
+    font-size: 14px;
+  }
+  .avatar-info {
+    font-size: 16px;
+  }
+  .header-nav,
+  .header-contacts {
+    display: none;
+  }
+  .header-burger {
+    display: block;
+    margin-left: auto;
+  }
+  .footer-flex {
+    justify-content: center;
+  }
+  .footer-logo {
+    width: 154px;
+    height: 28px;
+  }
+  .footer-contacts {
+    text-align: center;
+  }
+  .project .allusion {
+    transform: translateX(0);
+  }
+  .project {
+    flex: 1 1 47%;
+  }
+  .button-container {
+    max-width: 362px;
+    justify-content: left;
+  }
+  .projects-list {
+    margin-top: 40px;
+  }
+  .portfolio {
+    padding: 60px 0 58px;
+  }
+}
+@media (max-width: 480px) {
+  .social-join {
+    display: none;
+  }
+  .doing {
+    display: none;
+  }
+  .info-list {
+    flex: 1 1 100%;
+  }
+  .customers {
+    display: none;
+  }
+  .team-img {
+    height: 460px;
+  }
+  .main-information {
+    padding: 60px 0 0;
+  }
+  .hero-title {
+    font-size: 26px;
+  }
+  .project {
+    flex: 1 1 100%;
+  }
 }
