@@ -85,14 +85,15 @@ body {
 }
 .header-nav {
   display: flex;
-  column-gap: 50px;
-  margin-left: 93px;
+  column-gap: 40px;
+  margin-left: 88px;
 }
 .header-link {
   color: var(--dark-gray-color);
   text-decoration: none;
   font-weight: 500;
   display: block;
+  padding: 5px;
 }
 .header-li {
   position: relative;
@@ -134,30 +135,27 @@ body {
 .nav-contacts {
   background-color: var(--light-gr-color);
   position: absolute;
-  top: 0;
-  left: 100%;
+  top: 100%;
+  left: 0;
   border-radius: 4px;
   padding: 10px;
   box-shadow:
     0 4px 6px -1px rgba(0, 0, 0, 0.1),
     0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  transition: all 1s ease-in-out;
-  transform: translateX(-100%);
+  transition: all 0.8s ease-in-out;
+  transform: translateY(100%);
   opacity: 0;
   visibility: hidden;
+  z-index: 1;
 }
 .nav-contacts li {
   padding: 5px;
 }
-.header-li:hover .nav-filters {
+.header-li:hover .nav-filters,
+.header-li:hover .nav-contacts {
   visibility: visible;
   opacity: 1;
   transform: translateY(0);
-}
-.nav-filter:last-child:hover .nav-contacts {
-  visibility: visible;
-  opacity: 1;
-  transform: translateX(0) perspective(0);
 }
 
 .header-burger {
@@ -178,6 +176,7 @@ body {
   right: 0;
   height: 3px;
   background: black;
+  transition: all 0.3s ease;
 }
 
 .header-burger::after {
@@ -669,9 +668,41 @@ body {
   .header-contacts {
     display: none;
   }
+  .header-nav.active {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--white-color);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 99;
+    margin: 0;
+    padding: 0;
+    row-gap: 40px;
+    font-size: 24px;
+  }
+  body.lock {
+    overflow: hidden;
+  }
   .header-burger {
     display: block;
     margin-left: auto;
+    z-index: 100;
+  }
+  .header-burger.active::before {
+    transform: rotate(45deg);
+    top: 6.5px;
+  }
+  .header-burger.active::after {
+    transform: rotate(-45deg);
+    bottom: 6.5px;
+  }
+  .header-burger.active span {
+    transform: scale(0);
   }
   .footer-flex {
     justify-content: center;
