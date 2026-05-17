@@ -10,6 +10,17 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // Dropdown toggle logic
+  const dropdownLinks = document.querySelectorAll('.header-link');
+  dropdownLinks.forEach(link => {
+    if (link.textContent.trim() === 'Contacts' || link.textContent.trim() === 'Filters') {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        link.parentElement.classList.toggle('open');
+      });
+    }
+  });
+
   // Portfolio filtering logic
   const filterBtns = document.querySelectorAll('.filter-btn, .nav-filter > .header-link');
   const projects = document.querySelectorAll('.project');
